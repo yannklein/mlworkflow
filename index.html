@@ -69,12 +69,6 @@
         <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">
           1. Problem Definition 🎯
         </h2>
-        <p class="text-sm text-gray-500 mb-4">
-          Reference to
-          <a href="" class="kitt-link text-[#D7BA7D]" target="_blank"
-            >Kitt lecture</a
-          >
-        </p>
         <p class="mb-2">
           <strong>Goal:</strong> Understand and clearly articulate the business
           or research question.
@@ -279,41 +273,42 @@
           >
         </p>
         <p class="mb-2">
-          <strong>Goal:</strong> Convert data into a usable format for modeling.
+          <strong>Goal:</strong> Clean and convert data into a usable format for modeling.
         </p>
         <p class="mb-2"><strong>Key Actions:</strong></p>
         <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
           <li>Remove duplicates, handle missing values.</li>
           <li>Identify and correct outliers or inconsistent entries.</li>
-          <li>
-            Split data into train/validation/test sets (typically 60/20/20 or
-            70/30).
-          </li>
+          <br/>
           <li>Impute missing values (mean, median, constant).</li>
           <li>Normalize or standardize numerical features.</li>
           <li>
             Encode categorical variables (<a
-              href="https://machinelearningmastery.com/one-hot-encoding-for-categorical-data/"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >One-Hot</a
+            href="https://machinelearningmastery.com/one-hot-encoding-for-categorical-data/"
+            class="text-[#D7BA7D]"
+            target="_blank"
+            >One-Hot</a
             >
             or
             <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >Ordinal</a
+            href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html"
+            class="text-[#D7BA7D]"
+            target="_blank"
+            >Ordinal</a
             >).
           </li>
           <li>Create new features if useful (feature engineering).</li>
           <li>
             Balance the dataset if needed (<a
-              href="https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >SMOTE</a
+            href="https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html"
+            class="text-[#D7BA7D]"
+            target="_blank"
+            >SMOTE</a
             >, undersampling).
+          </li>
+          <br/>
+          <li>
+            Split data into train/validation/test sets (typically 60/20/20).
           </li>
         </ul>
         <p class="mb-2"><strong>Tools:</strong></p>
@@ -325,12 +320,6 @@
               target="_blank"
               >pandas</a
             >,
-            <a
-              class="text-[#D7BA7D]"
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
-              target="_blank"
-              >sklearn.model_selection.train_test_split</a
-            >
           </li>
           <li>
             <a
@@ -370,6 +359,14 @@
               >Pipeline</a
             >
           </li>
+          <li>
+            <a
+            class="text-[#D7BA7D]"
+            href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
+            target="_blank"
+            >sklearn.model_selection.train_test_split</a
+          >
+          </li>
         </ul>
         <p class="mb-2"><strong>Best Practices:</strong></p>
         <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
@@ -377,7 +374,6 @@
             Use stratify=y in classification problems to preserve label
             proportions.
           </li>
-          <li>Use pipelines to avoid data leakage during cross-validation.</li>
         </ul>
       </section>
 
@@ -386,6 +382,12 @@
         <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">
           5. Model Training 🧠
         </h2>
+        <p class="text-sm text-gray-500 mb-4">
+          Reference to
+          <a href="https://kitt.lewagon.com/camps/1979/lectures/05-ML%2F04-Under-the-hood" class="kitt-link text-[#D7BA7D]" target="_blank"
+            >Kitt lecture</a
+          >
+        </p>
         <p class="mb-2">
           <strong>Goal:</strong> Pick a few candidate algorithms and fit them on
           the training set.
@@ -598,7 +600,7 @@
         </h2>
         <p class="text-sm text-gray-500 mb-4">
           Reference to
-          <a href="" class="kitt-link text-[#D7BA7D]" target="_blank"
+          <a href="https://kitt.lewagon.com/camps/1979/lectures/05-ML%2F03-Performance-metrics" class="kitt-link text-[#D7BA7D]" target="_blank"
             >Kitt lecture</a
           >
         </p>
