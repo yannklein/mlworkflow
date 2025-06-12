@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ML Workflow with Scikit-learn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="bg-[#1e1e1e] text-[#d4d4d4] font-mono p-8 xl:w-3/4 m-auto">
+    <h1 class="text-4xl font-bold text-[#569CD6] mb-8 text-center mb-[120px] mt-[120px]">Machine Learning Workflow 🧠</h1>
+    <div class="flex flex-col items-center gap-6 mb-12">
+
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow mb-12">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-5">🧾 Cheatsheets</h2>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li><a href="https://www.pythoncheatsheet.org/" class="text-[#D7BA7D] underline" target="_blank">Python Cheatsheet</a></li>
+          <li><a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf" class="text-[#D7BA7D] underline" target="_blank">Pandas Cheatsheet</a></li>
+          <li><a href="https://matplotlib.org/cheatsheets/" class="text-[#D7BA7D] underline" target="_blank">Matplotlib Cheatsheets</a></li>
+          <li><a href="https://seaborn.pydata.org/tutorial.html" class="text-[#D7BA7D] underline" target="_blank">Seaborn Cheatsheet</a></li>
+          <li><a href="https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html" class="text-[#D7BA7D] underline" target="_blank">Scikit-learn Machine Learning Map</a></li>
+        </ul>
+      </section>
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">1. Problem Definition 🎯</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Understand and clearly articulate the business or research question.</p>
+        <p class="mb-2"><strong>Key Actions:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Determine if it’s a classification, regression, or clustering task.</li>
+          <li>Define the target variable and success metrics (accuracy, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html" class="text-[#D7BA7D] underline" target="_blank">RMSE</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html" class="text-[#D7BA7D] underline" target="_blank">AUC</a>, etc.).</li>
+          <li>Identify constraints (e.g. latency, interpretability, data volume).</li>
+        </ul>
+        <p class="mb-2"><strong>Tips:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Clarify whether this is a predictive or descriptive task.</li>
+          <li>Align on what “success” looks like with stakeholders.</li>
+        </ul>
+      </section>
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+
+      
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">2. Data Collection 📥</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="https://kitt.lewagon.com/camps/1979/lectures/02-Data-Toolkit%2F02-Data-Sourcing" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Gather sufficient, relevant data.</p>
+        <p class="mb-2"><strong>Key Actions:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Use APIs, web scraping, databases, CSVs, etc.</li>
+          <li>Identify potential sources: internal logs, public datasets, sensors, etc.</li>
+        </ul>
+        <p class="mb-2"><strong>Common Tools:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>
+            <a href="https://pandas.pydata.org/" class="text-[#D7BA7D] underline" target="_blank">pandas</a>, 
+            <a href="https://docs.python-requests.org/en/latest/" class="text-[#D7BA7D] underline" target="_blank">requests</a>, 
+            <a href="https://www.sqlalchemy.org/" class="text-[#D7BA7D] underline" target="_blank">sqlalchemy</a>, 
+            <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" class="text-[#D7BA7D] underline" target="_blank">beautifulsoup4</a>
+          </li>
+        </ul>
+        <p class="mb-2"><strong>Tips:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Ensure data diversity and coverage across your target variable.</li>
+          <li>Watch out for bias and class imbalance from the start.</li>
+        </ul>
+      </section>
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">3. Data Preparation 🧹</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="https://kitt.lewagon.com/camps/1979/lectures/05-ML%2F02-Prepare-the-dataset" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Get the raw data ready for modeling.</p>
+        <p class="mb-2"><strong>Key Actions:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Remove duplicates, handle missing values.</li>
+          <li>Identify and correct outliers or inconsistent entries.</li>
+          <li>Split data into train/validation/test sets (typically 60/20/20 or 70/30).</li>
+        </ul>
+        <p class="mb-2"><strong>Key Tools:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>
+            <a href="https://pandas.pydata.org/" class="text-[#D7BA7D] underline" target="_blank">pandas</a>, 
+            <a class="text-[#D7BA7D] underline" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html" target="_blank">sklearn.model_selection.train_test_split</a>
+          </li>
+        </ul>
+        <p class="mb-2"><strong>Best Practices:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Use stratify=y in classification problems to preserve label proportions.</li>
+        </ul>
+      </section>
+
+
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">4. Data Exploration & Analysis 🔍</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="https://kitt.lewagon.com/camps/1979/lectures/02-Data-Toolkit%2F03-Data-Visualization" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Understand your data, relationships, and distributions.</p>
+        <p class="mb-2"><strong>Key Actions:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Summary statistics, correlations, visualizations.</li>
+          <li>Investigate target leakage, spurious correlations, or skewed features.</li>
+        </ul>
+        <p class="mb-2"><strong>Tools:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>
+            <a href="https://pandas.pydata.org/" class="text-[#D7BA7D] underline" target="_blank">pandas</a>, 
+            <a href="https://seaborn.pydata.org/" class="text-[#D7BA7D] underline" target="_blank">seaborn</a>, 
+            <a href="https://matplotlib.org/" class="text-[#D7BA7D] underline" target="_blank">matplotlib</a>, 
+            <a href="https://docs.scipy.org/doc/scipy/reference/stats.html" class="text-[#D7BA7D] underline" target="_blank">scipy.stats</a>
+          </li>
+        </ul>
+        <p class="mb-2"><strong>Visuals to use:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>
+            <a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.hist.html" class="text-[#D7BA7D] underline" target="_blank">Histograms</a>, 
+            <a href="https://seaborn.pydata.org/generated/seaborn.boxplot.html" class="text-[#D7BA7D] underline" target="_blank">box plots</a>, 
+            <a href="https://seaborn.pydata.org/generated/seaborn.pairplot.html" class="text-[#D7BA7D] underline" target="_blank">pair plots</a>, 
+            <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html" class="text-[#D7BA7D] underline" target="_blank">heatmaps</a>, 
+            <a href="https://seaborn.pydata.org/generated/seaborn.barplot.html" class="text-[#D7BA7D] underline" target="_blank">bar charts</a>
+          </li>
+        </ul>
+      </section>
+
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">5. Data Preprocessing 🛠️</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="https://kitt.lewagon.com/camps/1979/lectures/05-ML%2F02-Prepare-the-dataset" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Convert data into a usable format for modeling.</p>
+        <p class="mb-2"><strong>Key Actions:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Impute missing values (mean, median, constant).</li>
+          <li>Normalize or standardize numerical features.</li>
+          <li>Encode categorical variables (<a href="https://machinelearningmastery.com/one-hot-encoding-for-categorical-data/" class="text-[#D7BA7D] underline" target="_blank">One-Hot</a> or <a href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html" class="text-[#D7BA7D] underline" target="_blank">Ordinal</a>).</li>
+          <li>Create new features if useful (feature engineering).</li>
+          <li>Balance the dataset if needed (<a href="https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html" class="text-[#D7BA7D] underline" target="_blank">SMOTE</a>, undersampling).</li>
+        </ul>
+        <p class="mb-2"><strong>Tools:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>
+            <a class="text-[#D7BA7D] underline" href="https://scikit-learn.org/stable/modules/preprocessing.html" target="_blank">sklearn.preprocessing</a>,
+            <a class="text-[#D7BA7D] underline" href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html" target="_blank">SimpleImputer</a>,
+            <a class="text-[#D7BA7D] underline" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html" target="_blank">StandardScaler</a>,
+            <a class="text-[#D7BA7D] underline" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html" target="_blank">OneHotEncoder</a>,
+            <a class="text-[#D7BA7D] underline" href="https://scikit-learn.org/stable/modules/generated/sklearn.compose.ColumnTransformer.html" target="_blank">ColumnTransformer</a>,
+            <a class="text-[#D7BA7D] underline" href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html" target="_blank">Pipeline</a>
+          </li>
+        </ul>
+        <p class="mb-2"><strong>Best Practices:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Use pipelines to avoid data leakage during cross-validation.</li>
+        </ul>
+      </section>
+
+
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">6. Model Selection 🤔</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Pick a few candidate algorithms.</p>
+        <p class="mb-2"><strong>Typical Choices:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Classification: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html" class="text-[#D7BA7D] underline" target="_blank">LogisticRegression</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html" class="text-[#D7BA7D] underline" target="_blank">RandomForestClassifier</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html" class="text-[#D7BA7D] underline" target="_blank">SVC</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="text-[#D7BA7D] underline" target="_blank">KNeighborsClassifier</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html" class="text-[#D7BA7D] underline" target="_blank">GradientBoostingClassifier</a></li>
+          <li>Regression: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html" class="text-[#D7BA7D] underline" target="_blank">LinearRegression</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html" class="text-[#D7BA7D] underline" target="_blank">Ridge</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html" class="text-[#D7BA7D] underline" target="_blank">Lasso</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html" class="text-[#D7BA7D] underline" target="_blank">SVR</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html" class="text-[#D7BA7D] underline" target="_blank">RandomForestRegressor</a></li>
+          <li>Unsupervised: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html" class="text-[#D7BA7D] underline" target="_blank">KMeans</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html" class="text-[#D7BA7D] underline" target="_blank">DBSCAN</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html" class="text-[#D7BA7D] underline" target="_blank">PCA</a></li>
+        </ul>
+        <p class="mb-2"><strong>Tips:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Start simple, benchmark against a dummy classifier or baseline.</li>
+          <li>Choose models aligned with your constraints (interpretability vs performance).</li>
+        </ul>
+      </section>
+
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">7. Model Training 🧠</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Fit models on the training set.</p>
+        <p class="mb-2"><strong>Key Actions:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Train selected models using <a href="https://scikit-learn.org/stable/glossary.html#term-fit" class="text-[#D7BA7D] underline" target="_blank">.fit()</a> (e.g., <code>.fit(X_train, y_train)</code>).</li>
+          <li>Use cross-validation for a more robust estimate of performance.</li>
+        </ul>
+        <p class="mb-2"><strong>Tool:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html" class="text-[#D7BA7D] underline" target="_blank">sklearn.model_selection.cross_val_score</a>, <a href="https://scikit-learn.org/stable/glossary.html#term-fit" class="text-[#D7BA7D] underline" target="_blank">.fit()</a></li>
+        </ul>
+        <p class="mb-2"><strong>Tip:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Set random_state to ensure reproducibility.</li>
+        </ul>
+      </section>
+
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">8. Model Evaluation 📊</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Evaluate how well your model performs on unseen data.</p>
+        <p class="mb-2"><strong>Key Metrics:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Classification: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html" class="text-[#D7BA7D] underline" target="_blank">accuracy</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html" class="text-[#D7BA7D] underline" target="_blank">precision</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html" class="text-[#D7BA7D] underline" target="_blank">recall</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html" class="text-[#D7BA7D] underline" target="_blank">f1_score</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html" class="text-[#D7BA7D] underline" target="_blank">roc_auc_score</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html" class="text-[#D7BA7D] underline" target="_blank">confusion_matrix</a></li>
+          <li>Regression: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html" class="text-[#D7BA7D] underline" target="_blank">mean_squared_error</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html" class="text-[#D7BA7D] underline" target="_blank">mean_absolute_error</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html" class="text-[#D7BA7D] underline" target="_blank">r2_score</a></li>
+        </ul>
+        <p class="mb-2"><strong>Tool:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html" class="text-[#D7BA7D] underline" target="_blank">sklearn.metrics</a></li>
+        </ul>
+        <p class="mb-2"><strong>Tips:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Use validation set for tuning, and test set only once for final evaluation.</li>
+          <li>Visualize residuals, ROC curves, and precision-recall curves.</li>
+        </ul>
+      </section>
+
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">9. Model Tuning 🎛️</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="https://kitt.lewagon.com/camps/1979/lectures/05-ML%2F05-Model-Tuning" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Improve performance by tuning hyperparameters.</p>
+        <p class="mb-2"><strong>Key Actions:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Use <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html" class="text-[#D7BA7D] underline" target="_blank">GridSearchCV</a> for exhaustive search.</li>
+          <li>Use <a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html" class="text-[#D7BA7D] underline" target="_blank">RandomizedSearchCV</a> for quicker, probabilistic search.</li>
+        </ul>
+        <p class="mb-2"><strong>Tool:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li><a href="https://scikit-learn.org/stable/modules/grid_search.html" class="text-[#D7BA7D] underline" target="_blank">sklearn.model_selection</a></li>
+        </ul>
+        <p class="mb-2"><strong>Tips:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Always combine tuning with cross-validation.</li>
+          <li>Be mindful of overfitting the validation set.</li>
+        </ul>
+      </section>
+
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">10. Model Deployment 🚀</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="https://kitt.lewagon.com/camps/1979/challenges?path=07-ML-Ops" class="kitt-link underline text-[#D7BA7D]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Make your model available in production.</p>
+        <p class="mb-2"><strong>Key Actions:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Serialize model with <a href="https://joblib.readthedocs.io/en/latest/generated/joblib.dump.html" class="text-[#D7BA7D] underline" target="_blank">joblib</a> or <a href="https://docs.python.org/3/library/pickle.html" class="text-[#D7BA7D] underline" target="_blank">pickle</a>.</li>
+          <li>Package with preprocessing pipeline using <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html" class="text-[#D7BA7D] underline" target="_blank">sklearn.pipeline</a>.</li>
+          <li>Deploy via REST API using <a href="https://flask.palletsprojects.com/" class="text-[#D7BA7D] underline" target="_blank">Flask</a> or <a href="https://fastapi.tiangolo.com/" class="text-[#D7BA7D] underline" target="_blank">FastAPI</a>.</li>
+        </ul>
+        <p class="mb-2"><strong>Tools:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li><a href="https://joblib.readthedocs.io/" class="text-[#D7BA7D] underline" target="_blank">joblib</a>, <a href="https://scikit-learn.org/stable/modules/pipeline.html" class="text-[#D7BA7D] underline" target="_blank">sklearn.pipeline</a>, <a href="https://flask.palletsprojects.com/" class="text-[#D7BA7D] underline" target="_blank">Flask</a>, <a href="https://fastapi.tiangolo.com/" class="text-[#D7BA7D] underline" target="_blank">FastAPI</a></li>
+        </ul>
+        <p class="mb-2"><strong>Tips:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Log inputs and outputs to monitor drift.</li>
+          <li>Use a separate environment for production.</li>
+        </ul>
+      </section>
+
+      <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
+      <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
+        <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">11. Monitoring & Maintenance 🛎️</h2>
+        <p class="text-sm text-gray-500 mb-4">Reference to <a href="https://kitt.lewagon.com/camps/1979/challenges?path=07-ML-Ops%2F03-Automate-model-lifecycle%2F01-Automate-model-lifecycle" class="kitt-link underline text-[#569CD6]" target="_blank">Kitt lecture</a></p>
+        <p class="mb-2"><strong>Goal:</strong> Ensure long-term model performance.</p>
+        <p class="mb-2"><strong>Key Actions:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>Monitor input data drift, performance drop, system errors.</li>
+          <li>Schedule periodic retraining.</li>
+          <li>Update the pipeline when data schema or distributions change.</li>
+        </ul>
+        <p class="mb-2"><strong>Tips:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
+          <li>Use model versioning with <a href="https://dvc.org/" class="text-[#D7BA7D] underline" target="_blank">DVC</a> or <a href="https://mlflow.org/" class="text-[#D7BA7D] underline" target="_blank">MLflow</a>.</li>
+          <li>Set up alerts for key metrics thresholds.</li>
+        </ul>
+      </section>
+
+    </div>
+    <script>
+      lucide.createIcons();
+      const camp = new URLSearchParams(window.location.search).get("camp") || "1979";
+      document.querySelectorAll("a.kitt-link").forEach(a => a.href = a.href.replace("XXXX", camp))
+    </script>
+  </body>
+</html>
