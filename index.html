@@ -418,133 +418,58 @@
           </li>
         </ul>
       </section>
-
       <i data-lucide="arrow-down" class="w-8 h-8 text-gray-600"></i>
       <section class="bg-[#2d2d2d] rounded-2xl p-6 shadow w-full">
         <h2 class="text-2xl font-semibold text-[#569CD6] mb-2">
           5. Model Training 🧠
         </h2>
         <p class="text-sm text-gray-500 mb-4">
-          Reference to
+          Reference to 2 Kitt lectures
           <a
             href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F04-Under-the-hood"
             class="kitt-link text-[#D7BA7D]"
             target="_blank"
-            >Kitt lecture</a
+            >here</a
+          >
+           and 
+           <a
+            href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F07-Ensemble-Methods"
+            class="kitt-link text-[#D7BA7D]"
+            target="_blank"
+            >here</a
           >
         </p>
+
         <p class="mb-2">
-          <strong>Goal:</strong> Pick a few candidate algorithms and fit them on
-          the training set.
+          <strong>Goal:</strong> Select candidate models, train them on the
+          training set, and compare performance.
         </p>
-        <p class="mb-2"><strong>Typical Choices:</strong></p>
+
+        <p class="mb-2"><strong>Estimator Examples:</strong></p>
         <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
           <li>
-            Classification:
+            <strong>Simple & interpretable models:</strong>
             <a
               href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"
               class="text-[#D7BA7D]"
               target="_blank"
               >LogisticRegression</a
-            >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F01-Fundamentals-of-Machine-Learning#source"
-              class="kitt-link text-[#D7BA7D]"
-              target="_blank"
-              >Kitt</a
-            >),
+            >,
             <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html"
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html"
               class="text-[#D7BA7D]"
               target="_blank"
-              >RandomForestClassifier</a
+              >DecisionTreeClassifier</a
             >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F07-Ensemble-Methods#source"
-              class="kitt-link text-[#D7BA7D]"
-              target="_blank"
-              >Kitt</a
-            >),
+            (can overfit but useful for explainability).
+          </li>
+          <li>
+            <strong>Support Vector Machines:</strong>
             <a
               href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html"
               class="text-[#D7BA7D]"
               target="_blank"
               >SVC</a
-            >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F05-Model-Tuning"
-              class="kitt-link text-[#D7BA7D]"
-              target="_blank"
-              >Kitt</a
-            >),
-            <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >KNeighborsClassifier</a
-            >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F03-Performance-metrics"
-              class="kitt-link text-[#D7BA7D]"
-              target="_blank"
-              >Kitt</a
-            >),
-            <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >GradientBoostingClassifier</a
-            >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F07-Ensemble-Methods#source"
-              class="kitt-link text-[#D7BA7D]"
-              target="_blank"
-              >Kitt lecture</a
-            >)
-          </li>
-          <li>
-            Regression:
-            <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >LinearRegression</a
-            >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F01-Fundamentals-of-Machine-Learning#source"
-              class="kitt-link text-[#D7BA7D]"
-              target="_blank"
-              >Kitt</a
-            >),
-            <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >Ridge</a
-            >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F05-Model-Tuning"
-              class="kitt-link text-[#D7BA7D]"
-              target="_blank"
-              >Kitt</a
-            >),
-            <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >Lasso</a
-            >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F05-Model-Tuning"
-              class="kitt-link text-[#D7BA7D]"
-              target="_blank"
-              >Kitt</a
-            >),
-            <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >ElasticNet</a
             >,
             <a
               href="https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html"
@@ -552,95 +477,197 @@
               target="_blank"
               >SVR</a
             >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F05-Model-Tuning"
-              class="kitt-link text-[#D7BA7D]"
+          </li>
+          <li>
+            <strong>Nearest Neighbors:</strong>
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html"
+              class="text-[#D7BA7D]"
               target="_blank"
-              >Kitt</a
-            >),
+              >KNeighborsClassifier</a
+            >
+          </li>
+          <li>
+            <strong>Linear Regression Variants:</strong>
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >LinearRegression</a
+            >,
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Ridge.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >Ridge</a
+            >,
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Lasso.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >Lasso</a
+            >,
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNet.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >ElasticNet</a
+            >
+          </li>
+        </ul>
+
+        <p class="mb-2"><strong>Ensemble Methods:</strong></p>
+        <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
+          <li>
+            <strong>Parallel (reduce variance):</strong>
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >RandomForestClassifier</a
+            >,
             <a
               href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html"
               class="text-[#D7BA7D]"
               target="_blank"
               >RandomForestRegressor</a
-            >
-            (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F07-Ensemble-Methods#source"
-              class="kitt-link text-[#D7BA7D]"
+            >,
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html"
+              class="text-[#D7BA7D]"
               target="_blank"
-              >Kitt</a
-            >)
+              >BaggingClassifier</a
+            >,
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingRegressor.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >BaggingRegressor</a
+            >
           </li>
           <li>
-            Unsupervised (<a
-              href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F06-Unsupervised-Learning"
-              class="kitt-link text-[#D7BA7D]"
-              target="_blank"
-              >Kitt</a
-            >):
+            <strong>Sequential (reduce bias):</strong>
             <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html"
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostClassifier.html"
               class="text-[#D7BA7D]"
               target="_blank"
-              >KMeans</a
+              >AdaBoostClassifier</a
             >,
             <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html"
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.AdaBoostRegressor.html"
               class="text-[#D7BA7D]"
               target="_blank"
-              >DBSCAN</a
+              >AdaBoostRegressor</a
             >,
             <a
-              href="https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html"
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html"
               class="text-[#D7BA7D]"
               target="_blank"
-              >PCA</a
+              >GradientBoostingClassifier</a
+            >,
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >GradientBoostingRegressor</a
+            >,
+            <a
+              href="https://xgboost.readthedocs.io/en/stable/python/python_api.html#xgboost.XGBRegressor"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >XGBRegressor</a
+            >
+            <span class="text-sm text-gray-400">(external library)</span>
+          </li>
+          <li>
+            <strong>Meta (combine different models):</strong>
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.VotingClassifier.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >VotingClassifier</a
+            >,
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.StackingClassifier.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >StackingClassifier</a
             >
           </li>
         </ul>
+
+        <div
+          class="border-l-4 border-yellow-500 bg-yellow-900/10 text-yellow-300 p-4 my-4 text-sm"
+        >
+          💡 <strong>Note:</strong> All these models are valid Scikit-learn
+          estimators. Choose your estimator based on:
+          <ul class="list-disc list-inside mt-2">
+            <li>Size of the dataset</li>
+            <li>Need for interpretability</li>
+            <li>Bias-variance trade-off</li>
+            <li>Time/performance constraints</li>
+          </ul>
+          <p class="mt-2">
+            Start simple. Then evaluate more complex or ensemble models if
+            performance needs improve.
+          </p>
+        </div>
+
         <p class="mb-2"><strong>Key Actions:</strong></p>
         <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
-          <li>
-            Train selected models using
-            <a
-              href="https://scikit-learn.org/stable/glossary.html#term-fit"
-              class="text-[#D7BA7D]"
-              target="_blank"
-              >.fit()</a
-            >
-            (e.g., <code>.fit(X_train, y_train)</code>).
-          </li>
-          <li>
-            Use cross-validation for a more robust estimate of performance.
-          </li>
+          <li>Train your model using <code>.fit(X_train, y_train)</code>.</li>
+          <li>Evaluate performance using cross-validation.</li>
+          <li>Compare models using scores like accuracy, RMSE, AUC, etc.</li>
         </ul>
-        <p class="mb-2"><strong>Tool:</strong></p>
+
+        <p class="mb-2"><strong>Tools:</strong></p>
         <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
           <li>
             <a
               href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html"
               class="text-[#D7BA7D]"
               target="_blank"
-              >sklearn.model_selection.cross_val_score</a
+              >cross_val_score</a
             >,
             <a
               href="https://scikit-learn.org/stable/glossary.html#term-fit"
               class="text-[#D7BA7D]"
               target="_blank"
-              >.fit()</a
+              >fit()</a
             >
           </li>
         </ul>
-        <p class="mb-2"><strong>Tip:</strong></p>
+
+        <p class="mb-2"><strong>Tips:</strong></p>
         <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
           <li>
-            Start simple, benchmark against a dummy classifier or baseline.
+            Benchmark against a
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >DummyClassifier</a
+            >
+            or
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyRegressor.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >DummyRegressor</a
+            >.
           </li>
           <li>
-            Choose models aligned with your constraints (interpretability vs
-            performance).
+            Use
+            <a
+              href="https://scikit-learn.org/stable/glossary.html#term-random-state"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >random_state</a
+            >
+            for reproducibility.
           </li>
-          <li>Set random_state to ensure reproducibility.</li>
+          <li>Start with interpretable models before exploring ensembles.</li>
+          <li>Use grid/random search later for hyperparameter tuning.</li>
         </ul>
       </section>
 
@@ -810,7 +837,7 @@
           8. Model Deployment 🚀
         </h2>
         <p class="text-sm text-gray-500 mb-4">
-          Reference to 
+          Reference to
           <a
             href="https://kitt.lewagon.com/camps/XXXX/challenges?path=07-ML-Ops"
             class="kitt-link text-[#D7BA7D]"
