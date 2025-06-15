@@ -8,7 +8,12 @@
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">📊</text></svg>' />    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="0.9em" font-size="90">📊</text></svg>'
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body class="bg-[#1e1e1e] text-[#d4d4d4] font-mono p-8 xl:w-3/4 m-auto">
@@ -270,49 +275,69 @@
           4. Data Preparation & Preprocessing 🛠️
         </h2>
         <p class="text-sm text-gray-500 mb-4">
-          Reference to
+          Reference to 2 Kitt lectures
           <a
             href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F02-Prepare-the-dataset"
             class="kitt-link text-[#D7BA7D]"
             target="_blank"
-            >Kitt lecture</a
+            >here</a
+          >
+          and
+          <a
+            href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F08-Workflow"
+            class="kitt-link text-[#D7BA7D]"
+            target="_blank"
+            >here</a
           >
         </p>
         <p class="mb-2">
-          <strong>Goal:</strong> Clean and convert data into a usable format for modeling.
+          <strong>Goal:</strong> Clean and convert data into a usable format for
+          modeling.
         </p>
         <p class="mb-2"><strong>Key Actions:</strong></p>
         <ul class="list-disc list-inside text-[#d4d4d4] ps-3 mb-2">
           <li>Remove duplicates, handle missing values.</li>
           <li>Identify and correct outliers or inconsistent entries.</li>
-          <br/>
+          <br />
           <li>Impute missing values (mean, median, constant).</li>
           <li>Normalize or standardize numerical features.</li>
           <li>
             Encode categorical variables (<a
-            href="https://machinelearningmastery.com/one-hot-encoding-for-categorical-data/"
-            class="text-[#D7BA7D]"
-            target="_blank"
-            >One-Hot</a
+              href="https://machinelearningmastery.com/one-hot-encoding-for-categorical-data/"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >One-Hot</a
             >
             or
             <a
-            href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html"
-            class="text-[#D7BA7D]"
-            target="_blank"
-            >Ordinal</a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >Ordinal</a
             >).
           </li>
           <li>Create new features if useful (feature engineering).</li>
           <li>
             Balance the dataset if needed (<a
-            href="https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html"
-            class="text-[#D7BA7D]"
-            target="_blank"
-            >SMOTE</a
+              href="https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+              >SMOTE</a
             >, undersampling).
           </li>
-          <br/>
+          <br />
+          <li>
+            Once your preprocessing steps are defined, wrap them in a
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html"
+              class="text-[#D7BA7D]"
+              target="_blank"
+            >
+              sklearn.pipeline.Pipeline
+            </a>
+            to apply them consistently on the training and future data.
+          </li>
+          <br />
           <li>
             Split data into train/validation/test sets (typically 60/20/20).
           </li>
@@ -367,18 +392,29 @@
           </li>
           <li>
             <a
-            class="text-[#D7BA7D]"
-            href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
-            target="_blank"
-            >sklearn.model_selection.train_test_split</a
-          >
+              class="text-[#D7BA7D]"
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html"
+              target="_blank"
+              >sklearn.model_selection.train_test_split</a
+            >
           </li>
         </ul>
         <p class="mb-2"><strong>Best Practices:</strong></p>
         <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
           <li>
-            Use stratify=y in classification problems to preserve label
-            proportions.
+            Use
+            <a
+              href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html"
+              target="_blank"
+              class="text-[#D7BA7D]"
+              >Pipeline</a
+            >
+            to combine preprocessing and modeling steps into a single, reusable
+            object.
+          </li>
+          <li>
+            Use <code>stratify=y</code> in classification problems to preserve
+            label proportions when splitting the dataset.
           </li>
         </ul>
       </section>
@@ -390,7 +426,10 @@
         </h2>
         <p class="text-sm text-gray-500 mb-4">
           Reference to
-          <a href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F04-Under-the-hood" class="kitt-link text-[#D7BA7D]" target="_blank"
+          <a
+            href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F04-Under-the-hood"
+            class="kitt-link text-[#D7BA7D]"
+            target="_blank"
             >Kitt lecture</a
           >
         </p>
@@ -612,7 +651,10 @@
         </h2>
         <p class="text-sm text-gray-500 mb-4">
           Reference to
-          <a href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F03-Performance-metrics" class="kitt-link text-[#D7BA7D]" target="_blank"
+          <a
+            href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F03-Performance-metrics"
+            class="kitt-link text-[#D7BA7D]"
+            target="_blank"
             >Kitt lecture</a
           >
         </p>
@@ -768,21 +810,13 @@
           8. Model Deployment 🚀
         </h2>
         <p class="text-sm text-gray-500 mb-4">
-          Reference to 2 Kitt lectures 
-          <a
-            href="https://kitt.lewagon.com/camps/XXXX/lectures/05-ML%2F08-Workflow"
-            class="kitt-link text-[#D7BA7D]"
-            target="_blank"
-            >here</a
-          >
-           and 
+          Reference to 
           <a
             href="https://kitt.lewagon.com/camps/XXXX/challenges?path=07-ML-Ops"
             class="kitt-link text-[#D7BA7D]"
             target="_blank"
-            >here</a
+            >Kitt lecture</a
           >
-          
         </p>
         <p class="mb-2">
           <strong>Goal:</strong> Make your model available in production.
@@ -806,13 +840,13 @@
             >.
           </li>
           <li>
-            Package with preprocessing pipeline using
+            Reuse the preprocessing pipeline built during training (e.g. using
             <a
               href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html"
               class="text-[#D7BA7D]"
               target="_blank"
               >sklearn.pipeline</a
-            >.
+            >) and serialize it with your model.
           </li>
           <li>
             Deploy via REST API using
@@ -894,17 +928,11 @@
         <ul class="list-disc list-inside text-[#d4d4d4] ps-3">
           <li>
             Use model versioning with
-            <a
-              href="https://dvc.org/"
-              class="text-[#D7BA7D]"
-              target="_blank"
+            <a href="https://dvc.org/" class="text-[#D7BA7D]" target="_blank"
               >DVC</a
             >
             or
-            <a
-              href="https://mlflow.org/"
-              class="text-[#D7BA7D]"
-              target="_blank"
+            <a href="https://mlflow.org/" class="text-[#D7BA7D]" target="_blank"
               >MLflow</a
             >.
           </li>
